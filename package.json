@@ -1,5 +1,5 @@
 {
-  "name": "mcinar-ui",
+  "name": "@mcinarpro/mcinar-ui",
   "version": "0.0.1",
   "description": "mcinar ui component library",
   "scripts": {
@@ -15,13 +15,21 @@
     "react": "^18.1.0",
     "rollup": "^2.73.0",
     "rollup-plugin-dts": "^4.2.1",
+    "tailwindcss": "^3.0.24",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcinarpro/mcinar-ui.git"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
