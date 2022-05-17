@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  button,
+  .button {
+    @apply text-2xl font-bold md:text-4xl;
+  }
+}
