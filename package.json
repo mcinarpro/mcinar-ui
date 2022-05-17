@@ -34,5 +34,8 @@
   "types": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2"
   }
 }
