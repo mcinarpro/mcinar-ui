@@ -3,12 +3,13 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import multi from "@rollup/plugin-multi-entry";
 
 const packageJson = require("./package.json");
 
 export default [
   {
-    input: ["src/utils/withTheme.ts"],
+    input: "src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -27,14 +28,15 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss({
         config: {
-          path: './postcss.config.js',
+          path: "./postcss.config.js",
         },
-        extensions: ['.css'],
+        extensions: [".css"],
         minimize: true,
         inject: {
-          insertAt: 'bottom',
+          insertAt: "bottom",
         },
       }),
+      multi(),
     ],
   },
   {
@@ -42,5 +44,20 @@ export default [
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
     external: [/\.css$/],
+  },
+  {
+    input: "src/utils/withTheme.ts",
+    output: [
+      {
+        file: "dist/cjs/withTheme.js",
+        format: "cjs",
+        sourcemap: true,
+      },
+    ],
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+    ],
   },
 ];

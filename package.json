@@ -1,6 +1,6 @@
 {
   "name": "@mcinarpro/mcinar-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "mcinar ui component library",
   "scripts": {
     "rollup": "rollup -c"
@@ -9,6 +9,7 @@
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-multi-entry": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.2",
     "@types/react": "^18.0.9",
